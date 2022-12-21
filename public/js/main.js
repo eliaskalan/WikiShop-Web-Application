@@ -24,7 +24,7 @@ async function getapi(url){
 
 function category_template(name){
     // compile the template
-    var template = Handlebars.compile(`<ul>{{#each doesWhat}}<li><a class="category" href="./categories/technology.html">{{title}}</a> </li>{{/each}}</ul>`);
+    var template = Handlebars.compile(`<ul>{{#each doesWhat}}<li><a class="category" href="./categories/{{id}}">{{title}}</a> </li>{{/each}}</ul>`);
     // execute the compiled template and print the output to the console
     var tab = template({ doesWhat: name });
     console.log(tab);

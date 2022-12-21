@@ -14,9 +14,9 @@ async function getapi(url){
     // if (response){
     //     hideloader();
     // }
-    show(data);
+    temp(data);
 }
-getapi(api_url);
+//getapi(api_url);
 // function hideloader()
 // {
 //     document.getElementById('loading').style.display="none";
@@ -38,4 +38,11 @@ function show(data){
         // Setting innerHTML as tab variable
         document.getElementById("para").innerHTML = tab;
 }
-
+function temp(name){
+    // compile the template
+    var template = Handlebars.compile(`<ul>{{#each doesWhat}}<li><a class="category" href="./categories/technology.html">{{title}}</a> </li>{{/each}}</ul>`);
+    // execute the compiled template and print the output to the console
+    var tab = template({ doesWhat: name });
+    console.log(tab);
+    document.getElementById("para").innerHTML = tab;
+}

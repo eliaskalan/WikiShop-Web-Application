@@ -3,6 +3,15 @@ const path = require('path')
 const app = express()
 const port = 8080
 
+//Loads the handlebars module
+const handlebars = require('express-handlebars');
+//Sets our app to use the handlebars engine
+app.set('view engine', 'handlebars');
+
+app.engine('handlebars', handlebars({
+    layoutsDir: __dirname + 'public',
+    }));
+
 app.listen(port)
 
 /* 
@@ -23,11 +32,13 @@ app.get('/', function(req, res){
 
     var options = {
         root: path.join(__dirname, 'public'),
-        msj: "Hello Elias"
+        msj: "Hello Elias",
+        name: "Elias"
+        
 
     }
 
-    res.sendFile('index.html', options, function(err){
+    res.render('index.html', ...options, function(err){
         console.log(err)
     })
 })

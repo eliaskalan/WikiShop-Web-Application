@@ -3,18 +3,7 @@
 // Put your client side JS code here
 console.log('Hello world')
 
-var obj = fetch("https://wiki-shop.onrender.com/categories")
-.then(res => {
-    console.log(res.ok)
-    console.log(res.status)
-    console.log(res)
-}).catch(err => console.log("Error"))
 
-
-
-fetch("https://wiki-shop.onrender.com/categories")
-    .then((response) => response.json())
-    .then((data) => console.log(data));
     
 const api_url = "https://wiki-shop.onrender.com/categories";
 

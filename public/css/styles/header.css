@@ -1,0 +1,44 @@
+header {
+	background-color: #0d1bbd;
+	color: white;
+	margin: auto;
+	padding: 2rem;
+}
+
+.logo-link img {
+	vertical-align: middle;
+	margin: 0 0.2rem;
+}
+
+.logo-link {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.menu {
+	display: flex;
+	flex-direction: column;
+	display: flex;
+	row-gap: 0.5rem;
+}
+
+@media screen and (min-width: 992px) {
+	.menu {
+		flex-direction: row;
+		align-items: center;
+		column-gap: 0.5rem;
+	}
+}
+
+.menu a {
+	color: white;
+	padding: 1rem;
+	border: 1px solid #0d1bbd;
+	transition: border 0.2s;
+}
+
+.menu a:hover {
+	border: 1px solid white;
+	transition: border 0.2s;
+}

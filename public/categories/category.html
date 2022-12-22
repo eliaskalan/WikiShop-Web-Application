@@ -1,71 +1,60 @@
 <html>
 
 <head>
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Κατηγορίες Προϊόντων - E-commerce - Assignment 1</title>
-    <link rel="icon" href="../public/favicon.svg" type="image/icon type">
+    <title>Τεχνολογία - E-commerce - Assignment 1</title>
+    <link rel="icon" href="../../public/favicon.svg" type="image/icon type" />
     <link rel="stylesheet" href="/css/styles/core.css" />
     <link rel="stylesheet" href="/css/styles/header.css" />
     <link rel="stylesheet" href="/css/styles/footer.css" />
     <link rel="stylesheet" href="/css/styles/category.css" />
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <script src="/js/main.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    
     <header>
         <nav class="menu">
-            <a href="../Exercise5/index.html" class="logo-link"><img src="../assets/logo-white.svg" alt="logo"
+            <a href="../../Exercise5/index.html" class="logo-link"><img src="../../assets/logo-white.svg" alt="logo"
                     class="logo" />My
                 E-commerce</a>
-            <a href="../Exercise5/about-us.html">About us</a>
-            <a href="../Exercise5/product-categories.html">Κατηγορίες</a>
-            <a href="../Exercise5/contactus.html">Επικοινωνήστε μαζί μας!</a>
+            <a href="../../Exercise5/about-us.html">About us</a>
+            <a href="../../Exercise5/product-categories.html">Κατηγορίες</a>
+            <a href="../../Exercise5/contactus.html">Επικοινωνήστε μαζί μας!</a>
         </nav>
     </header>
     <main class="container">
-        <h1 class="page-title">Κατηγορίες Προϊόντων</h1>
-        
-        <section id = "para" class="categories">
-            <!--TODO Colors-->
-            <script>
-                getCategories().then(data => category_template(data))
-        
-            </script>
-            <!-- <ul>
+        <h1 class="page-title">Τεχνολογία</h1>
+        <div class="category-image-header-container">
+            <img src="../../assets/products/categories/technology-header.jpeg" alt="Τεχνολογία" title="Τεχνολογία" />
+        </div>
+        <section class="categories">
+            <ul>
                 <li>
-                    <a class="category" href="./categories/technology.html">Τεχνολογία</a>
+                    <a href="../subcategories/product-smartphone.html" class="category">Τηλεφωνία</a>
                 </li>
-
                 <li>
-
-                    <a class="category green-background" href="./categories/books.html">Βιβλία</a>
+                    <a href="../subcategories/product-smartphone.html" class="category green-background">Gaming</a>
                 </li>
-
                 <li>
-                    <a class="category gray-background" href="./categories/health-and-beauty.html">Υγεία & Ομορφιά</a>
+                    <a href="../subcategories/product-cameras.html" class="category gray-background">Φωτογραφία &
+                        Video</a>
                 </li>
-
                 <li>
-                    <a class="category" href="./categories/sport-and-hobby.html">Άθληση & Hobby</a>
+                    <a href="../subcategories/product-cameras.html" class="category">Υπολογιστές & Περιφερειακά</a>
                 </li>
-
                 <li>
-                    <a class="category green" href="./categories/games.html">Παιχνίδια</a>
+                    <a href="../subcategories/product-cameras.html" class="category">Tablets & Αξεσουάρ</a>
                 </li>
-
-            </ul> -->
+            </ul>
         </section>
+
+
     </main>
 
 
     <footer>
         <div class="info-link">
-            <a href="../Exercise5/about-us.html">Σχετικά με εμάς</a>
-            <a href="../Exercise5/product-categories.html">Κατηγορίες</a>
+            <a href="../../Exercise5/about-us.html">Σχετικά με εμάς</a>
+            <a href="../../Exercise5/product-categories.html">Κατηγορίες</a>
         </div>
         <div class="social-media">
             <a href="https://www.facebook.com/" target="_blank" class="social-media-link">

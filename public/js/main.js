@@ -29,7 +29,7 @@ async function getapi(url){
 
 function category_template(name){
     // compile the template
-    var template = Handlebars.compile(`<ul>{{#each doesWhat}}<li><a class="category" href="./categories/{{id}}">{{title}}</a> </li>{{/each}}</ul>`);
+    var template = Handlebars.compile(`<ul>{{#each doesWhat}}<li><a class="category" href="/categories/{{id}}">{{title}}</a> </li>{{/each}}</ul>`);
     // execute the compiled template and print the output to the console
     var tab = template({ doesWhat: name });
     console.log(tab);
@@ -39,7 +39,7 @@ function category_template(name){
 function index_categories(name){
     // compile the template
     var template = Handlebars.compile(`{{#each doesWhat}}
-    <a href="./categories/{{id}}" class="category">
+    <a href="/categories/{{id}}" class="category">
                     <h3>{{title}}</h3>
                     <img src="{{img_url}}" width="300" height="300"></img>  
                 </a>

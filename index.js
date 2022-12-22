@@ -24,8 +24,7 @@ app.get('/', function(req, res){
 
     var options = {
         root: path.join(__dirname, 'public'),
-        msj: "Hello Elias",
-        name: "Elias"
+
         
 
     }
@@ -40,12 +39,23 @@ app.get('/categories', function(req, res){
 
     var options = {
         root: path.join(__dirname, 'public'),
-        msj: "Hello Elias",
-        name: "Elias"
 
     }
 
     res.sendFile('product-categories.html', options, function(err){
+        console.log(err)
+    })
+    
+})
+
+app.get('/categories/:id', function(req, res){
+    const id=req.params.id
+    var options = {
+        root: path.join(__dirname, 'public'),
+
+    }
+
+    res.sendFile('categories/category.html', options, function(err){
         console.log(err)
     })
     

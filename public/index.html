@@ -40,7 +40,7 @@
     <!-- table for showing data -->
     <table id="para"></table> 
     <script>
-        getapi("https://wiki-shop.onrender.com/categories")
+        getCategories().then(data => category_template(data))
         
     </script>
 

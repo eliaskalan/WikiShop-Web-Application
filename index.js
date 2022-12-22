@@ -42,7 +42,6 @@ app.get('/categories', function(req, res){
         root: path.join(__dirname, 'public'),
         msj: "Hello Elias",
         name: "Elias"
-        
 
     }
 

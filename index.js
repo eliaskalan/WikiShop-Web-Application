@@ -54,8 +54,33 @@ app.get('/categories/:id', function(req, res){
         root: path.join(__dirname, 'public'),
 
     }
-
     res.sendFile('categories/category.html', options, function(err){
+        console.log(err)
+    })
+    
+})
+
+app.get('/about-us', function(req, res){
+
+    var options = {
+        root: path.join(__dirname, 'public'),
+
+    }
+
+    res.sendFile('about-us.html', options, function(err){
+        console.log(err)
+    })
+    
+})
+
+app.get('/contactus', function(req, res){
+
+    var options = {
+        root: path.join(__dirname, 'public'),
+
+    }
+
+    res.sendFile('contactus.html', options, function(err){
         console.log(err)
     })
     

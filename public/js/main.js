@@ -27,7 +27,7 @@ async function getapi(url){
 //     document.getElementById('loading').style.display="none";
 // }
 
-function category_template(name){
+function categories_template(name){
     // compile the template
     var template = Handlebars.compile(`<ul>{{#each doesWhat}}<li><a class="category" href="/categories/{{id}}">{{title}}</a> </li>{{/each}}</ul>`);
     // execute the compiled template and print the output to the console
@@ -48,4 +48,8 @@ function index_categories(name){
     var tab = template({ doesWhat: name });
     console.log(tab);
     document.getElementById("para").innerHTML = tab + document.getElementById("para").innerHTML;
+}
+
+function category_template(name){
+    
 }

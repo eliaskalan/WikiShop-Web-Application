@@ -8,8 +8,16 @@ console.log('Hello world')
 const api_url = "https://wiki-shop.onrender.com/categories";
 async function getCategories() {
     return await getapi(api_url).then(data => data)
+
     
-    
+} 
+async function getSubCategories(id) {
+    return await getapi(api_url+"/"+id+"/subcategories").then(data => data)
+
+} 
+async function getSubCategoriesProducts(id) {
+    return await getapi(api_url+"/"+id+"/products").then(data => data)
+
 } 
 
 async function getapi(url){
@@ -51,5 +59,13 @@ function index_categories(name){
 }
 
 function category_template(name){
-    
+    // compile the template
+    var template = Handlebars.compile(`{{#each doesWhat}}
+    <li>
+        <a href="/categories/{{id}}/products" class="category">{{title}}</a>
+    </li>{{/each}}`);
+    // execute the compiled template and print the output to the console
+    var tab = template({ doesWhat: name });
+    console.log(tab);
+    document.getElementById("para").innerHTML = tab + document.getElementById("para").innerHTML;
 }

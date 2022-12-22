@@ -25,8 +25,6 @@ app.get('/', function(req, res){
     var options = {
         root: path.join(__dirname, 'public'),
 
-        
-
     }
 
     res.sendFile('index.html', options, function(err){
@@ -52,6 +50,7 @@ app.get('/categories/:id', function(req, res){
     const id=req.params.id
     var options = {
         root: path.join(__dirname, 'public'),
+        id: id
 
     }
     res.sendFile('categories/category.html', options, function(err){

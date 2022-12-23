@@ -13,6 +13,8 @@ app.listen(port)
 */
 app.use(express.static('public'))
 
+const root = path.join(__dirname, 'views');
+
 // parse url-encoded content from body
 app.use(express.urlencoded({ extended: false }))
 
@@ -23,8 +25,7 @@ app.use(express.json())
 app.get('/', function(req, res){
 
     var options = {
-        root: path.join(__dirname, 'public'),
-
+        root
     }
 
     res.sendFile('index.html', options, function(err){
@@ -34,35 +35,26 @@ app.get('/', function(req, res){
 })
 
 app.get('/categories', function(req, res){
-
     var options = {
-        root: path.join(__dirname, 'public'),
-
+        root
     }
 
-    res.sendFile('product-categories.html', options, function(err){
-        console.log(err)
-    })
-    
-})
-
-app.get('/categories/:id', function(req, res){
-    const id=req.params.id
-    var options = {
-        root: path.join(__dirname, 'public'),
-        id: id
-
+    if(req.query.categoryId){
+        res.sendFile('category.html', options, function(err){
+            console.log(err)
+        })
+    }else{
+        res.sendFile('product-categories.html', options, function(err){
+            console.log(err)
+        })
     }
-    res.sendFile('categories/category.html', options, function(err){
-        console.log(err)
-    })
-    
-})
+});
+
 
 app.get('/about-us', function(req, res){
 
     var options = {
-        root: path.join(__dirname, 'public'),
+        root,
 
     }
 
@@ -75,7 +67,7 @@ app.get('/about-us', function(req, res){
 app.get('/contactus', function(req, res){
 
     var options = {
-        root: path.join(__dirname, 'public'),
+        root
 
     }
 

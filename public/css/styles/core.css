@@ -1,0 +1,98 @@
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"),
+    url("/assets/Roboto/Roboto-Regular.ttf") format("opentype") tech(color-COLRv1), url("/assets/Roboto/Roboto-Black.ttf") format("opentype"), url("/assets/Roboto/Roboto-Black.ttf") format("woff");
+}
+
+
+
+body {
+  background-color: white;
+  font-family: 'Roboto', sans-serif;
+  color: #1e1e1e;
+}
+
+a {
+  color: #1e1e1e;
+  text-decoration: auto;
+  transition: 0.2 color;
+}
+
+a:hover {
+  color: #0d1bbd;
+  text-decoration: auto;
+}
+
+.page-title {
+  padding: 0.5;
+  color: #0d1bbd;
+  font-size: 2rem;
+}
+
+.page-title svg {
+  width: 2rem;
+  height: 2rem;
+  vertical-align: middle;
+}
+
+.container {
+  /* TODO more will add with responsive */
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.primary-button {
+  background-color: #0d1bbd;
+  border-radius: 4px;
+  color: white;
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+  transition: opacity 0.2s;
+}
+
+.primary-button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  color: white;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+}
+
+
+img {
+  max-width: 100%;
+  object-fit: contain;
+}

@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce - Assignment 1</title>
+    <link rel="stylesheet" href="/css/styles/core.css" />
+    <link rel="stylesheet" href="/css/styles/header.css" />
+    <link rel="stylesheet" href="/css/styles/footer.css" />
+    <link rel="stylesheet" href="/css/styles/category.css" />
+    <link rel="stylesheet" href="/css/styles/product.css" />
+    <link rel="stylesheet" href="/css/styles/index.css" />
+    <link rel="icon" href="./public/favicon.svg" type="image/icon type">
+    <script src="/lib/handlebars.js"></script>
+    <script src="/js/main.js" type="text/javascript"></script>
+    <script src="/js/components/categories.js" type="text/javascript"></script>
+    <script src="/js/core/layout.js" type="text/javascript"></script>
+    <script src="/js/core/apis.js" type="text/javascript"></script>
+    <script>
+        getCategories().then(data => {
+            document.getElementById("categories-list").innerHTML = categoryWithImage(data.splice(0, 2)) + document.getElementById("categories-list").innerHTML;
+        })
+    </script>
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <main class="container">
+        <h1 class="page-title">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag"
+                viewBox="0 0 16 16">
+                <path
+                    d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+            </svg> My E-commerce
+        </h1>
+        <section class="categories">
+            <h2 class="category-section-title">Κατηγορίες</h2>
+
+            <div id="categories-list" class="products-categories-grid">
+                <a href="/categories" class="category gray-background">
+                    <h3>Δες περισσότερες Κατηγορίες</h3><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-three-dots icon" viewBox="0 0 16 16">
+                        <path
+                            d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                    </svg>
+                </a>
+            </div>
+        </section>
+        <section class="products">
+            <!--TODO connect products with api-->
+            <h2>Προϊόντα σε χαμηλές τιμές</h2>
+            <div class="products-categories-grid">
+                <a href="/assproduct/product-apple-iphone-11.html" class="product">
+                    <h3 class="product-title">Apple Iphone 11</h3>
+                    <div class="product-image-parent">
+                        <img src="/assets/products/smartphone/apple_iphone_11.jpeg" alt="apple iphone"
+                            class="product-image" />
+                    </div>
+                    <button class="primary-button product-primary-button">
+                        Δες περισσότερα
+                    </button>
+                </a>
+                <a href="../Exercise2/product/product-xiaomi-redmi-note-11.html" class="product ">
+                    <h3 class="product-title">Xiaomi Redmi Note 11</h3>
+                    <div class="product-image-parent">
+                        <img src="../assets/products/smartphone/xiaomi-redmi-note-11.png" alt="apple iphone"
+                            class="product-image" />
+
+                    </div>
+                    <button class="primary-button product-primary-button">
+                        Δες περισσότερα
+                    </button>
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer id="footer">
+    </footer>
+
+</body>
+
+
+</html>

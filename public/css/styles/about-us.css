@@ -1,0 +1,29 @@
+.person {
+	text-align: center;
+}
+
+.social-medial-link svg {
+	height: 2rem;
+	width: 2rem;
+}
+
+.social-medial-link {
+	margin-right: 1rem;
+}
+
+.social-medial-link:last-of-type {
+	margin-right: 0;
+}
+
+.persons {
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.5rem;
+}
+
+@media screen and (min-width: 992px) {
+	.persons {
+		flex-direction: row;
+		column-gap: 0.5rem;
+	}
+}

@@ -1,0 +1,12 @@
+- primary : #0d1bbd
+- primary variant : #3700B3
+- secondary : #03DAC6
+- secondary variant : #018786
+- background : #FFFFFF
+- surface : #FFFFFF
+- error : #B00020
+- on primary : #FFFFFF
+- on secondary : #000000
+- on backround : #000000
+- on surfece : #000000
+- on error : #FFFFFF

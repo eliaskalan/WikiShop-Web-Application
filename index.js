@@ -3,6 +3,7 @@ const path = require('path')
 const app = express()
 const port = 8080
 
+
 app.listen(port)
 
 /* 
@@ -11,6 +12,8 @@ app.listen(port)
     e.g. http://localhost:8080/index.html
 */
 app.use(express.static('public'))
+
+const root = path.join(__dirname, 'views');
 
 // parse url-encoded content from body
 app.use(express.urlencoded({ extended: false }))
@@ -22,12 +25,59 @@ app.use(express.json())
 app.get('/', function(req, res){
 
     var options = {
-        root: path.join(__dirname, 'public'),
-        msj: "Hello Elias"
-
+        root
     }
 
     res.sendFile('index.html', options, function(err){
         console.log(err)
     })
+
 })
+
+app.get('/categories', function(req, res){
+    var options = {
+        root
+    }
+    console.log(req.query)
+    if(req.query.categoryId && req.query.subcategoryId){
+        res.sendFile('product-subcategories.html', options, function(err){
+            console.log(err)
+        })
+    }else if(req.query.categoryId){
+        res.sendFile('category.html', options, function(err){
+            console.log(err)
+        })
+    }else{
+        res.sendFile('product-categories.html', options, function(err){
+            console.log(err)
+        })
+    }
+});
+
+
+app.get('/about-us', function(req, res){
+
+    var options = {
+        root,
+
+    }
+
+    res.sendFile('about-us.html', options, function(err){
+        console.log(err)
+    })
+    
+})
+
+app.get('/contactus', function(req, res){
+
+    var options = {
+        root
+
+    }
+
+    res.sendFile('contactus.html', options, function(err){
+        console.log(err)
+    })
+    
+})
+

@@ -2,10 +2,10 @@
   "name": "inf165-webdev-project",
   "version": "1.0.0",
   "description": "Template project for webdev assignment 2",
-  "main": "api/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon api/index.js"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",

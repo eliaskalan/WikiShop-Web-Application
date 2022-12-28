@@ -29,7 +29,7 @@
 
         })
         getSubCategories(categoryId).then(data => {
-            document.getElementById("subcategories-list").innerHTML = categoryWithOutImage(data)
+            document.getElementById("subcategories-list").innerHTML = categoryWithOutImage(data,categoryId)
         })</script>
 </head>
 

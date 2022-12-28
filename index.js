@@ -38,8 +38,12 @@ app.get('/categories', function(req, res){
     var options = {
         root
     }
-
-    if(req.query.categoryId){
+    console.log(req.query)
+    if(req.query.categoryId && req.query.subcategoryId){
+        res.sendFile('product-subcategories.html', options, function(err){
+            console.log(err)
+        })
+    }else if(req.query.categoryId){
         res.sendFile('category.html', options, function(err){
             console.log(err)
         })
@@ -76,3 +80,4 @@ app.get('/contactus', function(req, res){
     })
     
 })
+

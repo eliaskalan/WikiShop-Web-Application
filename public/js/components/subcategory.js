@@ -1,6 +1,6 @@
-function categoryWithOutImage(data){
+function categoryWithOutImage(data,category_id){
     var template = Handlebars.compile(
-        `{{#each list}}<div class="product">
+        `{{#each list}}<a href="/product?categoryId=${categoryId}&subcategoryId={{subcategory_id}}&productId={{id}}" class="product">
         <div class="product-image-parent">
             <img src="{{image}}" class="product-image"
                 alt="{{title}}" />
@@ -13,7 +13,7 @@ function categoryWithOutImage(data){
                 <p>{{cost}}€</p>
             </li>
         </ul>
-    </div>{{/each}}`);
+    </a>{{/each}}`);
     return template({ list: data });
 }
 function getFitlerSubCategoriesProducts(id,data)
@@ -29,7 +29,7 @@ function getFitlerSubCategoriesProducts(id,data)
 
 function getProducts(category_id,subcategory_id){
     getSubCategoriesProducts(category_id).then(data => {
-    document.getElementById("subcategories-list").innerHTML = categoryWithOutImage(getFitlerSubCategoriesProducts(subcategory_id,data))
+    document.getElementById("subcategories-list").innerHTML = categoryWithOutImage(getFitlerSubCategoriesProducts(subcategory_id,data),category_id)
 })
 }
 

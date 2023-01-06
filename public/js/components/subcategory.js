@@ -1,4 +1,4 @@
-function categoryWithOutImage(data,category_id){
+function productWithImage(data,category_id){
     var template = Handlebars.compile(
         `{{#each list}}<a href="/product?categoryId=${categoryId}&subcategoryId={{subcategory_id}}&productId={{id}}" class="product">
         <div class="product-image-parent">
@@ -29,7 +29,7 @@ function getFitlerSubCategoriesProducts(id,data)
 
 function getProducts(category_id,subcategory_id){
     getSubCategoriesProducts(category_id).then(data => {
-    document.getElementById("subcategories-list").innerHTML = categoryWithOutImage(getFitlerSubCategoriesProducts(subcategory_id,data),category_id)
+    document.getElementById("subcategories-list").innerHTML = productWithImage(getFitlerSubCategoriesProducts(subcategory_id,data),category_id)
 })
 }
 

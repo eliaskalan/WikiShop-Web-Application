@@ -40,3 +40,4 @@ function categoryWithOutImage(data, category_id){
             
     return template({ list: data });
 }
+

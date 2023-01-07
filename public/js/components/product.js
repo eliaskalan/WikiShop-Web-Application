@@ -34,7 +34,7 @@ function products(data){
         {{/each}}`);
         return template({ list: data });
 }
-function getFitlerSubCategoriesProducts(id,data)
+function getFilterSubCategoriesProducts(id,data)
 {
     for(let i = 0; i < data.length; i++){
     if(data[i].id == id){
@@ -43,10 +43,10 @@ function getFitlerSubCategoriesProducts(id,data)
     }
 
 }
-function getProduct(produt_id,category_id)
+function getProduct(product_id,category_id)
 {
     getSubCategoriesProducts(category_id).then(data => {
-        const single_product= getFitlerSubCategoriesProducts(produt_id,data)
+        const single_product= getFilterSubCategoriesProducts(product_id,data)
         console.log(single_product)
         document.getElementById('subcategories-product').innerHTML = product(single_product)
         document.getElementById('product-title').innerHTML = single_product.title

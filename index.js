@@ -88,7 +88,7 @@ app.get('/product', function(req, res){
 
     }
 
-    console.log(req.query)
+   
     if(req.query.categoryId && req.query.subcategoryId && req.query.productId){
         res.sendFile('product.html', options, function(err){
             console.log(err)

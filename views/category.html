@@ -41,7 +41,7 @@
         
         document.addEventListener("DOMContentLoaded", function(){
             getSubCategories(categoryId).then(data => {
-            document.getElementById("subcategories-list").innerHTML = filterSubCategory(data)
+            document.getElementById("radio-group").innerHTML = filterList(data)
         })
             getInitialProducts(categoryId).then(data => {initialProducts=data});
             
@@ -56,6 +56,17 @@
     <!-- TODO preselected All -->
     <!-- TODO CSS and html so it looks like a filter -->
     <main class="container">
+        <form>
+            <fieldset>
+              <legend>Subcategories</legend>
+              <div id="radio-group">
+              
+              </div>
+                <button type="submit">Submit</button>
+              </div>
+            </fieldset>
+        </form>
+
         <h1 class="page-title" id="page-title"></h1>
         <div class="category-image-header-container">
             <!-- TODO change Τεχνολογια -->

@@ -16,7 +16,7 @@ function productWithImage(data,category_id){
     </a>{{/each}}`);
     return template({ list: data });
 }
-function getFitlerSubCategoriesProducts(id,data)
+function getFilterSubCategoriesProducts(id,data)
 {
     let arrayProduct = [];
     for(let i = 0; i < data.length; i++){
@@ -26,11 +26,29 @@ function getFitlerSubCategoriesProducts(id,data)
     }
     return arrayProduct
 }
+function getProducts(category_id,subcategory_id,data){
+    document.getElementById("subcategories-list-products").innerHTML = productWithImage(getFilterSubCategoriesProducts(subcategory_id,data),category_id)
+}
 
-function getProducts(category_id,subcategory_id){
-    getSubCategoriesProducts(category_id).then(data => {
-    document.getElementById("subcategories-list").innerHTML = productWithImage(getFitlerSubCategoriesProducts(subcategory_id,data),category_id)
+async function getInitialProducts(category_id){
+    return getSubCategoriesProducts(category_id).then(data => {
+        document.getElementById("subcategories-list-products").innerHTML = productWithImage(data,category_id)
+    return data    
 })
 }
+
+function filterSubCategory(data){
+    const code = () => `
+    {{#each list}}
+        <li>
+            <button class="category" onClick="renderProducts({{category_id}},{{id}})">{{title}}</button> 
+        </li>
+    {{/each}}`
+    var template = Handlebars.compile(code());
+
+            
+    return template({ list: data });
+}
+
 
 

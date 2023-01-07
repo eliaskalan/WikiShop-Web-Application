@@ -40,7 +40,7 @@ app.get('/categories', function(req, res){
     }
     console.log(req.query)
     if(req.query.categoryId && req.query.subcategoryId){
-        res.sendFile('product-subcategories.html', options, function(err){
+        res.sendFile('category.html', options, function(err){
             console.log(err)
         })
     }else if(req.query.categoryId){

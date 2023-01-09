@@ -47,7 +47,6 @@ function getProduct(product_id,category_id)
 {
     getSubCategoriesProducts(category_id).then(data => {
         const single_product= getFilterSubCategoriesProducts(product_id,data)
-        console.log(single_product)
         document.getElementById('subcategories-product').innerHTML = product(single_product)
         document.getElementById('product-title').innerHTML = single_product.title
         document.title=single_product.title

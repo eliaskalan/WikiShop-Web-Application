@@ -27,6 +27,7 @@ function getFilterSubCategoriesProducts(id,data)
     return arrayProduct
 }
 function getProducts(category_id,subcategory_id,data){
+    //TODO Rename
     document.getElementById("subcategories-list-products").innerHTML = productWithImage(getFilterSubCategoriesProducts(subcategory_id,data),category_id)
 }
 

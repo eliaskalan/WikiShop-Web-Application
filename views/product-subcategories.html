@@ -21,8 +21,9 @@
             const searchParams = new URLSearchParams(url.search)
             const categoryId = searchParams.getAll("categoryId")[0];
             const subcategoryId = searchParams.getAll("subcategoryId")[0];
+            
             document.addEventListener("DOMContentLoaded", function(){
-            getProducts(categoryId,subcategoryId);
+            getProduct(categoryId,subcategoryId)
             });    
         </script>
     </head>

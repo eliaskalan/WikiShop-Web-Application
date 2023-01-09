@@ -40,7 +40,7 @@ app.get('/categories', function(req, res){
     }
     console.log(req.query)
     if(req.query.categoryId && req.query.subcategoryId){
-        res.sendFile('product-subcategories.html', options, function(err){
+        res.sendFile('category.html', options, function(err){
             console.log(err)
         })
     }else if(req.query.categoryId){
@@ -81,3 +81,17 @@ app.get('/contactus', function(req, res){
     
 })
 
+
+app.get('/product', function(req, res){
+    var options = {
+        root,
+
+    }
+
+   
+    if(req.query.categoryId && req.query.subcategoryId && req.query.productId){
+        res.sendFile('product.html', options, function(err){
+            console.log(err)
+        })
+    }
+})

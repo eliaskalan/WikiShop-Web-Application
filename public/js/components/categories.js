@@ -11,6 +11,7 @@
 // }
 
 function categoryWithImage(data){
+    // TODO remove css from html code
     var template = Handlebars.compile(`{{#each list}}
     <a href="/categories?categoryId={{id}}" class="category">
                     <h3>{{title}}</h3>
@@ -40,3 +41,13 @@ function categoryWithOutImage(data, category_id){
             
     return template({ list: data });
 }
+
+function filterList(data){
+    var template = Handlebars.compile(`{{#each list}}
+        <input type="radio" id="{{id}}" name="subcategory" value="{{id}}" />
+        <label for="{{id}}">{{title}}</label>
+                
+    {{/each}}`);
+    return template({ list: data });
+}
+

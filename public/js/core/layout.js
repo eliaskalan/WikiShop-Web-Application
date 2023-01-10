@@ -30,9 +30,21 @@ const onLoadWindow = () => {
         </div>
       </form>
     </div>
-        <a href="/" class="logo-link-right"><img src="/assets/shopping-cart-icon.svg" alt="logo" class="logo" />
-            <span>Καλάθι<span>
-        </a>
+    <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;"><img src="/assets/shopping-cart-icon.svg" alt="logo" class="logo" />Καλάθι</button>
+    <div id="id02" class="modal">
+    //  TODO add correct destination/action 
+      <form class="modal-content animate" action="/action_page.php" method="post">
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+          
+        </div>
+    
+        <div class="cart">
+            <h3 class="cart-text">Shopping Cart</h3>
+            <h5 class="Action">Remove all</h5>
+            </div>
+      </form>
+    
     </div>
     </nav>`
 

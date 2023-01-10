@@ -4,6 +4,7 @@ function productWithImage(data,category_id){
         <div class="product-image-parent">
             <img src="{{image}}" class="product-image"
                 alt="{{title}}" />
+                
         </div>
         <ul>
             <li>
@@ -11,6 +12,9 @@ function productWithImage(data,category_id){
             </li>
             <li>
                 <p>{{cost}}€</p>
+            </li>
+            <li>
+                <button type="submit" class="primary-button product-primary-button">Προσθήκη στο καλάθι</button>
             </li>
         </ul>
     </a>{{/each}}`);

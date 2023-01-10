@@ -33,7 +33,7 @@ const onLoadWindow = () => {
     <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;"><img src="/assets/shopping-cart-icon.svg" alt="logo" class="logo" />Καλάθι</button>
     <div id="id02" class="modal">
     //  TODO add correct destination/action 
-      <form class="modal-content animate" action="/action_page.php" method="post">
+      <div class="modal-content animate" action="/action_page.php" method="post">
         <div class="imgcontainer">
           <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
           
@@ -42,10 +42,31 @@ const onLoadWindow = () => {
         <div class="cart">
             <h3 class="cart-text">Shopping Cart</h3>
             <h5 class="Action">Remove all</h5>
-            </div>
-      </form>
-    
+            
+      </div>
+      <div class="Cart-Items">
+        
+        <div class="image-box">
+            <img src="../assets/products/smartphone/xiaomi-redmi-note-11.png"  height="120px"  />
+        </div>
+        <div class="about">
+            <h1 class="title">Product Name</h1>
+        </div>
+        
+        <div class="counter">
+            <div class="btn">+</div>
+            <div class="count">2</div>
+            <div class="btn">-</div>
+        </div>
+        <div class="prices">
+            <div class="amount">$2.99</div>
+            <div class="remove"><u>Remove</u></div>
+        </div>
+        </div>
+        
     </div>
+    </div>
+    
     </nav>`
 
 const footerHtml = `

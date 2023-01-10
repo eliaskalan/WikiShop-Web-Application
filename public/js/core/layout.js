@@ -1,11 +1,39 @@
 const onLoadWindow = () => {
     const headerHtml = `
-    <nav class="menu">
+    <nav class="menu space-between">
+    <div class="menu">
         <a href="/" class="logo-link"><img src="/assets/logo-white.svg" alt="logo" class="logo" />My
             E-commerce</a>
         <a href="/about-us">About us</a>
         <a href="/categories">Κατηγορίες</a>
         <a href="/contactus">Επικοινωνήστε μαζί μας!</a>
+    </div>
+    <div class="menu">
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><img src="/assets/user-profile-icon.svg" alt="logo" class="logo" />Login</button>
+
+    <div id="id01" class="modal">
+    //  TODO add correct destination/action 
+      <form class="modal-content animate" action="/action_page.php" method="post">
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+          
+        </div>
+    
+        <div class="container">
+          <label for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+    
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+            
+          <button type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+        <a href="/" class="logo-link-right"><img src="/assets/shopping-cart-icon.svg" alt="logo" class="logo" />
+            <span>Καλάθι<span>
+        </a>
+    </div>
     </nav>`
 
 const footerHtml = `

@@ -1,3 +1,31 @@
+const cardProduct = () => {
+    document.getElementById('id02').style.display='block'
+    const template = Handlebars.compile(`{{#each list}}
+    <div  class="cart-item">
+<div class="about">
+    <h1 class="title">{{title}}</h1>
+</div>
+
+<div class="counter">
+<div class="count">Quantity</div>
+    <div class="btn">{{quantity}}</div>
+   
+</div>
+<div class="prices">
+    <div class="amount">{{cost}} €</div>
+    <div class="remove"><u>Remove</u></div>
+</div>
+</div>
+</div>
+                {{/each}}`);
+getCardProduct('giannistolou').then(data => {     
+    console.log(data.cartItems);
+    console.log(template({ list: data.cartItems }));
+    document.getElementById('cart-items').innerHTML = template({ list: data.cartItems });
+    })
+
+}
+
 const onLoadWindow = () => {
     const headerHtml = `
     <nav class="menu space-between">
@@ -30,7 +58,7 @@ const onLoadWindow = () => {
         </div>
       </form>
     </div>
-    <button onclick="document.getElementById('id02').style.display='block'" class="header-menu-button"><img src="/assets/shopping-cart-icon.svg" alt="bucket" class="header-icon" />Καλάθι</button>
+    <button onclick="cardProduct('cart-items')" class="header-menu-button"><img src="/assets/shopping-cart-icon.svg" alt="bucket" class="header-icon" />Καλάθι</button>
     <div id="id02" class="modal">
     <!-- TODO add correct destination/action -->
       <div class="modal-content animate" action="/action_page.php" method="post">
@@ -41,35 +69,16 @@ const onLoadWindow = () => {
     
         <div class="cart">
             <h3 class="cart-text">Shopping Cart</h3>
-            <h5 class="Action">Remove all</h5>
-            
+            <h5 class="Action">Remove all</h5>          
       </div>
-      <div class="cart-items">
-        
-        <div class="image-box">
-            <img src="../assets/products/smartphone/xiaomi-redmi-note-11.png"  height="120px"  />
-        </div>
-        <div class="about">
-            <h1 class="title">Product Name</h1>
-        </div>
-        
-        <div class="counter">
-        <div class="count">Quantity</div>
-            <div class="btn">2</div>
-           
-        </div>
-        <div class="prices">
-            <div class="amount">$2.99</div>
-            <div class="remove"><u>Remove</u></div>
-        </div>
-        </div>
+      <div id="cart-items" class="cart-items">
         
     </div>
     </div>
     
     </nav>`
 
-const footerHtml = `
+    const footerHtml = `
 <div class="info-link">
     <a href="/about-us">Σχετικά με εμάς</a>
     <a href="/categories">Κατηγορίες</a>
@@ -104,12 +113,12 @@ const footerHtml = `
     <span>&copy; <a href="https://www.aueb.gr/" target="_blank">Aueb</a> 2022</span>
 </div>
 `
-const header = Handlebars.compile(headerHtml)();
-const footer = Handlebars.compile(footerHtml)();
-document.getElementById("header").innerHTML = header;
-document.getElementById("footer").innerHTML = footer;
+    const header = Handlebars.compile(headerHtml)();
+    const footer = Handlebars.compile(footerHtml)();
+    document.getElementById("header").innerHTML = header;
+    document.getElementById("footer").innerHTML = footer;
 }
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
     onLoadWindow();
 });

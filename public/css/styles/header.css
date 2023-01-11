@@ -134,6 +134,7 @@ span.psw {
 	margin: 5% auto 15% auto;
 	border: 1px solid #888;
 	width: 80%;
+	padding: 2rem;
 }
 
 
@@ -214,8 +215,15 @@ span.psw {
 	border-bottom: 1px solid #E44C4C;
 }
 
-.cart-items {
-	height: 30%;
+.card-items {
+	min-height: 30%;
+	display: flex;
+	flex-direction: column;
+	padding: 2rem;
+}
+
+.cart-item {
+
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

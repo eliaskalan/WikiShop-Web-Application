@@ -24,8 +24,8 @@
         const categoryId = searchParams.getAll("categoryId")[0];
         let initialProducts = []
         let subcategoryId = searchParams.getAll("subcategoryId")[0];
-        function renderProducts(category_id,subcategory_id){
-            getProducts(category_id,subcategory_id,initialProducts)
+        function renderProducts(category_id, subcategory_id) {
+            getProducts(category_id, subcategory_id, initialProducts)
         }
         getCategories().then(data => {
             data.forEach(category => {
@@ -37,51 +37,71 @@
             });
 
         })
-        
-        
-        document.addEventListener("DOMContentLoaded", function(){
-            getSubCategories(categoryId).then(data => {
-            document.getElementById("radio-group").innerHTML = filterList(data)
-        })
-            getInitialProducts(categoryId).then(data => {initialProducts=data});
-            
-        console.log(initialProducts)
-        })
-        
-        </script>
 
+
+        document.addEventListener("DOMContentLoaded", function () {
+            getSubCategories(categoryId).then(data => {
+                document.getElementById("radio-group").innerHTML = `<input type="radio" id="-1" name="subcategory" value="-1">
+                    <label for="-1">Όλα</label>` + filterList(data)
+            })
+            getInitialProducts(categoryId).then(data => { initialProducts = data });
+            if (subcategoryId) {
+                renderProducts(categoryId, subcategoryId)
+            }
+            const form = document.querySelector("form");
+            form.addEventListener(
+                "change",
+                (event) => {
+                    const data = new FormData(form);
+                    for (const entry of data) {
+                        subcategoryId = entry[1]
+                    }
+                    if (subcategoryId == -1) {
+                        document.getElementById("subcategories-list-products").innerHTML = productWithImage(initialProducts, categoryId)
+                    } else {
+                        searchParams.append("subcategoryId", subcategoryId)
+                        console.log(searchParams.toString());
+                        //window.location = searchParams;
+                        renderProducts(categoryId, subcategoryId)
+                    }
+
+
+                    event.preventDefault();
+                },
+                false
+            );
+        })
+    </script>
 </head>
 
 <body>
     <header id="header">
     </header>
-    <!-- TODO preselected All -->
-    <!-- TODO CSS and html so it looks like a filter -->
     <main class="container">
-        <form>
-            <fieldset>
-              <legend>Subcategories</legend>
-              <div id="radio-group">
-              
-              </div>
-                <button type="submit">Submit</button>
-              </div>
-            </fieldset>
-        </form>
+
 
         <h1 class="page-title" id="page-title"></h1>
+        <form>
+            <fieldset>
+                <legend>Subcategories</legend>
+                <div id="radio-group">
+                    <input type="radio" id="all" name="subcategory" value="all">
+                    <label for="all">Όλα</label>
+                </div>
+                </div>
+            </fieldset>
+        </form>
         <div class="category-image-header-container">
-            <!-- TODO change Τεχνολογια -->
-            <img src="" alt="Τεχνολογία" title="Τεχνολογία" id="banner-image" />
+            <img src="" alt="banner image" id="banner-image" />
         </div>
         <section class="categories">
             <ul id="subcategories-list">
-                
+
             </ul>
         </section>
-        <!-- TODO Doesn't appear right -->
+
         <section id="subcategories-list-products" class="products products-categories-grid">
-                
+
         </section>
 
 

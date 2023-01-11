@@ -9,12 +9,12 @@ const onLoadWindow = () => {
         <a href="/contactus">Επικοινωνήστε μαζί μας!</a>
     </div>
     <div class="menu">
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><img src="/assets/user-profile-icon.svg" alt="logo" class="logo" />Login</button>
+    <button onclick="document.getElementById('id01').style.display='block'" class="header-menu-button"><img src="/assets/user-profile-icon.svg" alt="log in" class="header-icon" />Login</button>
 
     <div id="id01" class="modal">
     //  TODO add correct destination/action 
       <form class="modal-content animate" action="/action_page.php" method="post">
-        <div class="imgcontainer">
+        <div class="img-container">
           <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
           
         </div>
@@ -30,11 +30,11 @@ const onLoadWindow = () => {
         </div>
       </form>
     </div>
-    <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;"><img src="/assets/shopping-cart-icon.svg" alt="logo" class="logo" />Καλάθι</button>
+    <button onclick="document.getElementById('id02').style.display='block'" class="header-menu-button"><img src="/assets/shopping-cart-icon.svg" alt="bucket" class="header-icon" />Καλάθι</button>
     <div id="id02" class="modal">
     //  TODO add correct destination/action 
       <div class="modal-content animate" action="/action_page.php" method="post">
-        <div class="imgcontainer">
+        <div class="img-container">
           <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
           
         </div>

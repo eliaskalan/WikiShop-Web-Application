@@ -15,22 +15,25 @@ header {
 	flex-direction: row;
 	align-items: center;
 }
-.logo-link-right{
+
+.logo-link-right {
 	align-items: center;
 	display: flex;
 	flex-direction: row;
 	right: 0;
 	column-gap: 0.5rem;
 }
-.space-between{
+
+.space-between {
 	justify-content: space-between;
 }
+
 .menu {
 	display: flex;
 	flex-direction: column;
 	display: flex;
 	row-gap: 0.5rem;
-	
+
 }
 
 @media screen and (min-width: 992px) {
@@ -53,18 +56,20 @@ header {
 	border: 1px solid white;
 	transition: border 0.2s;
 }
+
 /* TODO mobile css ir wrong */
-input[type=text], input[type=password] {
+input[type=text],
+input[type=password] {
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
 	display: inline-block;
 	border: 1px solid #ccc;
 	box-sizing: border-box;
-  }
-  
-  
-  button {
+}
+
+
+button {
 	background-color: #0d1bbd;
 	color: white;
 	padding: 14px 20px;
@@ -72,123 +77,136 @@ input[type=text], input[type=password] {
 	border: none;
 	cursor: pointer;
 	width: 100%;
-  }
-  
-  button:hover {
-	opacity: 0.8;
-  }
-  
+}
 
-  .cancelbtn {
+button:hover {
+	opacity: 0.8;
+}
+
+
+.cancelbtn {
 	width: auto;
 	padding: 10px 18px;
 	background-color: #f44336;
-  }
-  
-  
-  .imgcontainer {
+}
+
+
+.img-container {
 	text-align: center;
 	margin: 24px 0 12px 0;
 	position: relative;
-  }
-  
-  img.avatar {
+}
+
+img.avatar {
 	width: 40%;
 	border-radius: 50%;
-  }
-  
-  .container {
+}
+
+.container {
 	padding: 16px;
 	color: #000;
-  }
-  
-  span.psw {
+}
+
+span.psw {
 	float: right;
 	padding-top: 16px;
-  }
-  
-  
-  .modal {
+}
+
+
+.modal {
 	display: none;
-	position: fixed; 
-	z-index: 1; 
+	position: fixed;
+	z-index: 1;
 	left: 0;
 	top: 0;
-	width: 100%; 
-	height: 100%; 
+	width: 100%;
+	height: 100%;
 	overflow: auto;
-	background-color: rgb(0,0,0); 
-	background-color: rgba(0,0,0,0.4); 
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
 	padding-top: 60px;
-	
-  }
-  
-  
-  .modal-content {
+
+}
+
+
+.modal-content {
 	background-color: #fefefe;
-	margin: 5% auto 15% auto; 
+	margin: 5% auto 15% auto;
 	border: 1px solid #888;
-	width: 80%; 
-  }
-  
- 
-  .close {
+	width: 80%;
+}
+
+
+.close {
 	position: absolute;
 	right: 25px;
 	top: 0;
 	color: #000;
 	font-size: 35px;
 	font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
+}
+
+.close:hover,
+.close:focus {
 	color: red;
 	cursor: pointer;
-  }
-  
-  
-  .animate {
+}
+
+
+.animate {
 	-webkit-animation: animatezoom 0.6s;
 	animation: animatezoom 0.6s
-  }
-  
-  @-webkit-keyframes animatezoom {
-	from {-webkit-transform: scale(0)} 
-	to {-webkit-transform: scale(1)}
-  }
-	
-  @keyframes animatezoom {
-	from {transform: scale(0)} 
-	to {transform: scale(1)}
-  }
-  
-  
-  @media screen and (max-width: 300px) {
-	span.psw {
-	   display: block;
-	   float: none;
-	}
-	.cancelbtn {
-	   width: 100%;
-	}
-  }
+}
 
-  .cart{
-	margin: auto;
- 	width: 90%;
- 	height: 15%;
- 	display: flex;
- 	justify-content: space-between;
- 	align-items: center;
+@-webkit-keyframes animatezoom {
+	from {
+		-webkit-transform: scale(0)
 	}
-.cart-text{
+
+	to {
+		-webkit-transform: scale(1)
+	}
+}
+
+@keyframes animatezoom {
+	from {
+		transform: scale(0)
+	}
+
+	to {
+		transform: scale(1)
+	}
+}
+
+
+@media screen and (max-width: 300px) {
+	span.psw {
+		display: block;
+		float: none;
+	}
+
+	.cancelbtn {
+		width: 100%;
+	}
+}
+
+.cart {
+	margin: auto;
+	width: 90%;
+	height: 15%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.cart-text {
 	font-size: 20px;
 
- 	font-weight: 700;
- 	color: #2F3841;
+	font-weight: 700;
+	color: #2F3841;
 }
-.Action{
+
+.Action {
 	font-size: 14px;
 	font-weight: 600;
 	color: #E44C4C;
@@ -196,44 +214,49 @@ input[type=text], input[type=password] {
 	border-bottom: 1px solid #E44C4C;
 }
 
-.Cart-Items{
+.Cart-Items {
 	margin: auto;
 	width: 90%;
 	height: 30%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-   }
-   .image-box{
+}
+
+.image-box {
 	width: 15%;
 	text-align: center;
-   }
-   .about{
+}
+
+.about {
 	height: 100%;
-   }
-   .title{
+}
+
+.title {
 	padding-top: 5px;
 	line-height: 10px;
 	font-size: 32px;
-	
+
 	font-weight: 800;
 	color: #202020;
-   }
-   .subtitle{
+}
+
+.subtitle {
 	line-height: 10px;
 	font-size: 18px;
-	
+
 	font-weight: 600;
 	color: #909090;
-   }
+}
 
-   .counter{
+.counter {
 	width: 15%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-   }
-   .btn{
+}
+
+.btn {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
@@ -242,42 +265,47 @@ input[type=text], input[type=password] {
 	justify-content: center;
 	align-items: center;
 	font-size: 20px;
-	
+
 	font-weight: 900;
 	color: #202020;
 	cursor: pointer;
-   }
-   .count{
+}
+
+.count {
 	font-size: 20px;
-	
+
 	font-weight: 900;
 	color: #202020;
-   }
-   .prices{
+}
+
+.prices {
 	padding-top: 20px;
 	height: 100%;
 	text-align: right;
-   }
-   .amount{
+}
+
+.amount {
 	padding-top: 20px;
 	font-size: 26px;
-	
+
 	font-weight: 800;
 	color: #202020;
-   }
-   .save{
+}
+
+.save {
 	padding-top: 5px;
 	font-size: 14px;
-	
+
 	font-weight: 600;
 	color: #1687d9;
 	cursor: pointer;
-   }
-   .remove{
+}
+
+.remove {
 	padding-top: 5px;
 	font-size: 14px;
-	
+
 	font-weight: 600;
 	color: #E44C4C;
 	cursor: pointer;
-   }
+}

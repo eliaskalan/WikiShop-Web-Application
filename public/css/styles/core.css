@@ -36,7 +36,7 @@ a:hover {
 }
 
 .container {
-  
+
   margin: 0 auto;
   padding: 1rem;
 }
@@ -89,6 +89,18 @@ ul {
 .logo {
   width: 30px;
   height: 30px;
+}
+
+.header-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.header-menu-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 0.5rem;
 }
 
 

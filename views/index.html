@@ -20,6 +20,9 @@
         getCategories().then(data => {
             document.getElementById("categories-list").innerHTML = categoryWithImage(data.splice(0, 2)) + document.getElementById("categories-list").innerHTML;
         })
+        getCardProduct('giannistolou').then(data => {
+            console.log('card', data);
+        })
     </script>
 </head>
 

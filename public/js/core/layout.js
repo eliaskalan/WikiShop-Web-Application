@@ -32,7 +32,7 @@ const onLoadWindow = () => {
     </div>
     <button onclick="document.getElementById('id02').style.display='block'" class="header-menu-button"><img src="/assets/shopping-cart-icon.svg" alt="bucket" class="header-icon" />Καλάθι</button>
     <div id="id02" class="modal">
-    //  TODO add correct destination/action 
+    <!-- TODO add correct destination/action -->
       <div class="modal-content animate" action="/action_page.php" method="post">
         <div class="img-container">
           <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -44,7 +44,7 @@ const onLoadWindow = () => {
             <h5 class="Action">Remove all</h5>
             
       </div>
-      <div class="Cart-Items">
+      <div class="cart-items">
         
         <div class="image-box">
             <img src="../assets/products/smartphone/xiaomi-redmi-note-11.png"  height="120px"  />
@@ -54,9 +54,9 @@ const onLoadWindow = () => {
         </div>
         
         <div class="counter">
-            <div class="btn">+</div>
-            <div class="count">2</div>
-            <div class="btn">-</div>
+        <div class="count">Quantity</div>
+            <div class="btn">2</div>
+           
         </div>
         <div class="prices">
             <div class="amount">$2.99</div>

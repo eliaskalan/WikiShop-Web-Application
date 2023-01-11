@@ -5,7 +5,7 @@ const port = 8080
 
 
 app.listen(port)
-
+const fs = require('fs');
 /* 
     Serve static content from directory "public",
     it will be accessible under path /, 
@@ -94,4 +94,12 @@ app.get('/product', function(req, res){
             console.log(err)
         })
     }
+})
+
+
+app.get('/card/:username', (req, res) => {
+    const username = req.params.username
+    let rawdata = fs.readFileSync('./databases/card.json');
+    let card = JSON.parse(rawdata);
+    res.json(card[username]);
 })

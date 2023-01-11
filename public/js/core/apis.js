@@ -19,5 +19,8 @@ async function getSubCategories(id) {
 
 async function getSubCategoriesProducts(id) {
     return await getApi(`${api_url}/${id}/products`).then(data => data)
+} 
 
+async function getCardProduct(username) {
+    return await getApi(`http://localhost:8080/card/${username}`).then(data => data)
 } 

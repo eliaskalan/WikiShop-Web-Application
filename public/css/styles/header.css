@@ -214,13 +214,12 @@ span.psw {
 	border-bottom: 1px solid #E44C4C;
 }
 
-.Cart-Items {
-	margin: auto;
-	width: 90%;
+.cart-items {
 	height: 30%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding: 0 2rem;
 }
 
 .image-box {

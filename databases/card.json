@@ -1,0 +1,17 @@
+{
+	"giannistolou": {
+		"cartItems": [
+			{
+				"title": "Globe hoodie (men)",
+				"cost": 42,
+				"quantity": 2
+			},
+			{
+				"title": "Globe hoodie (women)",
+				"cost": 40,
+				"quantity": 2
+			}
+		],
+		"totalCost": 164
+	}
+}

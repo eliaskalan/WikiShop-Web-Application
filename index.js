@@ -122,7 +122,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'static')));
 
-// TODO ERROR HANDLING
+// TODO UUID 
 app.post("/auth", function(req,res){
     let username = req.body.username;
     let password = req.body.password;

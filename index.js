@@ -29,7 +29,6 @@ app.get('/', function(req, res){
     var options = {
         root
     }
-
     res.sendFile('index.html', options, function(err){
         console.log(err)
     })
@@ -131,21 +130,24 @@ app.post("/auth", function(req,res){
     let users = JSON.parse(rawdata);
     
     if(username && password)
-    {
-        if(users[username].password==password)
+    {   
+        
+        
+        if(typeof(users[username])!="undefined" && users[username].password==password)
         {
+            console.log("Aa")
             console.log(username,password,users[username].password);
             req.session.loggedin = true;
             req.session.username = username;
             res.redirect("/")
         } else {
-            response.send('Incorrect Username and/or Password!');
+            res.send('<p>Incorrect Username and/or Password!<p>');
         }
-        response.end();
+        res.end();
     }
     else {
-		response.send('Please enter Username and Password!');
-		response.end();
+		res.send('Please enter Username and Password!');
+		res.end();
 	}
 })
 

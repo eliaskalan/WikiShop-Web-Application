@@ -25,6 +25,12 @@ getCardProduct('giannistolou').then(data => {
     })
 
 }
+const userLogin = () => {
+    document.getElementById('id01').style.display='block'
+    getUser('giannistolou').then(data => {
+        console.log(data.password);
+    })
+}
 
 const onLoadWindow = () => {
     const headerHtml = `
@@ -39,25 +45,27 @@ const onLoadWindow = () => {
     <div class="menu">
     <button onclick="document.getElementById('id01').style.display='block'" class="header-menu-button"><img src="/assets/user-profile-icon.svg" alt="log in" class="header-icon" />Login</button>
 
-    <div id="id01" class="modal">
-    //  TODO add correct destination/action 
-      <form class="modal-content animate" action="/action_page.php" method="post">
-        <div class="img-container">
-          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-          
-        </div>
-    
-        <div class="container">
-          <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
-    
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
-            
-          <button type="submit">Login</button>
-        </div>
-      </form>
+        <div id="id01" class="modal">
+        //  TODO add correct destination/action 
+          <form class="modal-content animate" action="/auth" method="post">
+            <div class="img-container">
+              <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+              
+            </div>
+        
+            <div class="container">
+              <label for="username"><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" name="username" required>
+        
+              <label for="password"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="password" required>
+                
+              <button type="submit">Login</button>
+            </div>
+          </form>
     </div>
+    
+    
     <button onclick="cardProduct('cart-items')" class="header-menu-button"><img src="/assets/shopping-cart-icon.svg" alt="bucket" class="header-icon" />Καλάθι</button>
     <div id="id02" class="modal">
     <!-- TODO add correct destination/action -->

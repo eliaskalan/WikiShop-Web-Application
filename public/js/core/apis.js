@@ -24,3 +24,7 @@ async function getSubCategoriesProducts(id) {
 async function getCardProduct(username) {
     return await getApi(`http://localhost:8080/card/${username}`).then(data => data)
 } 
+
+async function getUser(username){
+	return await getApi(`http://localhost:8080/users/${username}`).then(data => data)
+}

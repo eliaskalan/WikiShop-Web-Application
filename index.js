@@ -2,10 +2,12 @@ const express = require('express')
 const path = require('path')
 const app = express()
 const port = 8080
+const session = require('express-session');
 
 
 app.listen(port)
 const fs = require('fs');
+const { Session } = require('inspector')
 /* 
     Serve static content from directory "public",
     it will be accessible under path /, 
@@ -103,3 +105,47 @@ app.get('/card/:username', (req, res) => {
     let card = JSON.parse(rawdata);
     res.json(card[username]);
 })
+
+app.get("/users/:username",(req, res) =>{
+    const username = req.params.username
+    let rawdata = fs.readFileSync('./databases/users.json');
+    let users = JSON.parse(rawdata);
+    console.log(users[username])
+    res.json(users[username]);
+});
+
+app.use(session({
+	secret: 'secret',
+	resave: true,
+	saveUninitialized: true
+}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'static')));
+
+// TODO ERROR HANDLING
+app.post("/auth", function(req,res){
+    let username = req.body.username;
+    let password = req.body.password;
+    let rawdata = fs.readFileSync('./databases/users.json');
+    let users = JSON.parse(rawdata);
+    
+    if(username && password)
+    {
+        if(users[username].password==password)
+        {
+            console.log(username,password,users[username].password);
+            req.session.loggedin = true;
+            req.session.username = username;
+            res.redirect("/")
+        } else {
+            response.send('Incorrect Username and/or Password!');
+        }
+        response.end();
+    }
+    else {
+		response.send('Please enter Username and Password!');
+		response.end();
+	}
+})
+

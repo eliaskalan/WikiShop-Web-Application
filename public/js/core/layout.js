@@ -25,12 +25,7 @@ getCardProduct('giannistolou').then(data => {
     })
 
 }
-const userLogin = () => {
-    document.getElementById('id01').style.display='block'
-    getUser('giannistolou').then(data => {
-        console.log(data.password);
-    })
-}
+
 
 const onLoadWindow = () => {
     const headerHtml = `

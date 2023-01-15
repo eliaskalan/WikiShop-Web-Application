@@ -135,10 +135,13 @@ app.post("/auth", function(req,res){
         
         if(typeof(users[username])!="undefined" && users[username].password==password)
         {
-            console.log("Aa")
+            
+            const { v4: uuidv4 } = require('uuid');
             console.log(username,password,users[username].password);
             req.session.loggedin = true;
             req.session.username = username;
+            req.session.uuid=uuidv4();
+            console.log(req.session.uuid)
             res.redirect("/")
         } else {
             res.send('<p>Incorrect Username and/or Password!<p>');

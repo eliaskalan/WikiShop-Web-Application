@@ -105,13 +105,6 @@ app.get('/card/:username', (req, res) => {
     res.json(card[username]);
 })
 
-app.get("/users/:username",(req, res) =>{
-    const username = req.params.username
-    let rawdata = fs.readFileSync('./databases/users.json');
-    let users = JSON.parse(rawdata);
-    console.log(users[username])
-    res.json(users[username]);
-});
 
 app.use(session({
 	secret: 'secret',
@@ -141,16 +134,21 @@ app.post("/auth", function(req,res){
             req.session.loggedin = true;
             req.session.username = username;
             req.session.uuid=uuidv4();
-            console.log(req.session.uuid)
-            res.redirect("/")
+            return res.json({
+                token: req.session.uuid,
+                username: username,
+                message: 'Successfully login'
+            });
         } else {
-            res.send('<p>Incorrect Username and/or Password!<p>');
+           return res.status(401).send({
+                message: '401 Unauthorized'
+             });
         }
-        res.end();
     }
     else {
-		res.send('Please enter Username and Password!');
-		res.end();
+		return res.status(401).send({
+            message: '401 Unauthorized'
+         });
 	}
 })
 

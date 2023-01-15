@@ -26,8 +26,47 @@ getCardProduct('giannistolou').then(data => {
 
 }
 
+const setUser = (username, token) => {
+   
+    document.getElementById("title-login").innerHTML = username;
+    document.getElementById("login-header").onclick = "";
+    document.getElementById('id01').style.display='none';
+    sessionStorage.setItem("token", token);
+    sessionStorage.setItem("username", username);
+}
+
+async function userLogin(username, password) {
+    try{
+		const response = await fetch('/auth', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'}, 
+            body: JSON.stringify({username: username, password: password})
+        });
+		var data = await response.json();
+		return data;
+       
+	}catch{
+        
+	}
+} 
+
+const login = () => {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    userLogin(username, password).then((data) => {
+        const token = data.token;
+        const username = data.username;
+        if(token, username){
+            setUser(username, token);
+        }else{
+            alert('Η σύνδεση δεν ήταν επιτυχής')
+        }
+    }).catch((error) => console.log(error))
+}
+
 
 const onLoadWindow = () => {
+    
     const headerHtml = `
     <nav class="menu space-between">
     <div class="menu">
@@ -38,11 +77,13 @@ const onLoadWindow = () => {
         <a href="/contactus">Επικοινωνήστε μαζί μας!</a>
     </div>
     <div class="menu">
-    <button onclick="document.getElementById('id01').style.display='block'" class="header-menu-button"><img src="/assets/user-profile-icon.svg" alt="log in" class="header-icon" />Login</button>
+    <button onclick="document.getElementById('id01').style.display='block'" class="header-menu-button" id="login-header">
+    <img src="/assets/user-profile-icon.svg" alt="log in" class="header-icon" /><span id="title-login">Login</span></button>
 
         <div id="id01" class="modal">
-        //  TODO add correct destination/action 
-          <form class="modal-content animate" action="/auth" method="post">
+        <!-- TODO add correct destination/action -->
+        <div class="modal-content animate">
+          <form>
             <div class="img-container">
               <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
               
@@ -50,21 +91,21 @@ const onLoadWindow = () => {
         
             <div class="container">
               <label for="username"><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="username" required>
+              <input type="text"  id="username" placeholder="Enter Username" name="username" required>
         
               <label for="password"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="password" required>
-                
-              <button type="submit">Login</button>
+              <input type="password" id="password" placeholder="Enter Password" name="password" required>
             </div>
           </form>
+          <button onclick="login()">Login</button>
+          </div>
     </div>
     
     
     <button onclick="cardProduct('cart-items')" class="header-menu-button"><img src="/assets/shopping-cart-icon.svg" alt="bucket" class="header-icon" />Καλάθι</button>
     <div id="id02" class="modal">
     <!-- TODO add correct destination/action -->
-      <div class="modal-content animate" action="/action_page.php" method="post">
+      <div class="modal-content animate">
         <div class="img-container">
           <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
           
@@ -120,6 +161,12 @@ const onLoadWindow = () => {
     const footer = Handlebars.compile(footerHtml)();
     document.getElementById("header").innerHTML = header;
     document.getElementById("footer").innerHTML = footer;
+    const username = sessionStorage.getItem("username");
+    const token = sessionStorage.getItem("token");
+    if(username && token && token != 'undefined'){
+        setUser(username, token);
+    }
+
 }
 
 document.addEventListener("DOMContentLoaded", function () {

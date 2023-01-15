@@ -24,4 +24,3 @@ async function getSubCategoriesProducts(id) {
 async function getCardProduct(username) {
     return await getApi(`http://localhost:8080/card/${username}`).then(data => data)
 } 
-

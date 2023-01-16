@@ -96,13 +96,33 @@ app.get('/product', function(req, res){
         })
     }
 })
+app.get('/cart',function(req, res){
 
+    var options = {
+        root
 
-app.get('/card/:username', (req, res) => {
+    }
+    console.log(req.query)
+    const username=req.query.username;
+    const sessionId = req.query.sessionId;
+    // TODO validation of user
+    //TODO if user exist return cart 
+    res.sendFile('cart.html', options, function(err){
+        console.log(err)
+    })
+    
+})
+app.get('/card/:username/:sessionId', (req, res) => {
     const username = req.params.username
+    const sessionId = req.params.sessionId
+    let datalogin = JSON.parse(fs.readFileSync('./databases/users.json'));
+    const user=datalogin[username]
     let rawdata = fs.readFileSync('./databases/card.json');
     let card = JSON.parse(rawdata);
-    res.json(card[username]);
+    if(user.number==sessionId){
+        res.json(card[username]);
+    }
+    
 })
 
 
@@ -134,6 +154,7 @@ app.post("/auth", function(req,res){
             req.session.loggedin = true;
             req.session.username = username;
             req.session.uuid=uuidv4();
+            //TODO write to json file the seassion token and username 
             return res.json({
                 token: req.session.uuid,
                 username: username,
@@ -151,4 +172,5 @@ app.post("/auth", function(req,res){
          });
 	}
 })
+
 

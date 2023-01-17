@@ -141,7 +141,10 @@ app.post("/auth", function(req,res){
     let password = req.body.password;
     let rawdata = fs.readFileSync('./databases/users.json');
     let users = JSON.parse(rawdata);
-    
+    var obj = {
+        table: []
+     };
+     
     if(username && password)
     {   
         
@@ -154,12 +157,15 @@ app.post("/auth", function(req,res){
             req.session.loggedin = true;
             req.session.username = username;
             req.session.uuid=uuidv4();
-            //TODO write to json file the seassion token and username 
+            //TODO write to json file the seassion token and username
+            users[username].number=req.session.uuid;
+            fs.writeFileSync('./databases/users.json',JSON.stringify(users));
             return res.json({
                 token: req.session.uuid,
                 username: username,
                 message: 'Successfully login'
             });
+            
         } else {
            return res.status(401).send({
                 message: '401 Unauthorized'

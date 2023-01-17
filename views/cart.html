@@ -20,11 +20,11 @@
         <script>
             const url = window.location;
             const searchParams = new URLSearchParams(url.search)
-            const categoryId = searchParams.getAll("categoryId")[0];
-            const subcategoryId = searchParams.getAll("subcategoryId")[0];
-            
+            const username= searchParams.getAll("username")[0];
+            const sessionId = searchParams.getAll("sessionId")[0];
+            console.log(username,sessionId);
             document.addEventListener("DOMContentLoaded", function(){
-            cardProduct(); 
+            cardProduct(username,sessionId); 
             
             });
                

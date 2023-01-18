@@ -2,16 +2,16 @@
 	"giannistolou": {
 		"cartItems": [
 			{
-				"title": "Globe hoodie (men)",
+				"title": "Wikipedia -Puzzle Globe- Symbol Women's Hoodie",
 				"cost": 42,
 				"quantity": 2
 			},
 			{
-				"title": "Globe hoodie (women)",
-				"cost": 40,
-				"quantity": 2
+				"title": "Wikipedia language water bottle",
+				"cost": 18,
+				"quantity": 1
 			}
 		],
-		"totalCost": 164
+		"totalCost": 102
 	}
 }

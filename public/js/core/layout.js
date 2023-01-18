@@ -1,12 +1,12 @@
 
 
-const setUser = (username, token) => {
-   
+const setUser = (username, token, totalItems = 0) => {
     document.getElementById("title-login").innerHTML = username;
     document.getElementById("login-header").onclick = "";
     document.getElementById('id01').style.display='none';
     sessionStorage.setItem("token", token);
     sessionStorage.setItem("username", username);
+    sessionStorage.setItem("totalItems", totalItems);
     document.getElementById("to-cart").setAttribute("href",`/cart?username=${username}&sessionId=${token}`)
 }
 
@@ -56,7 +56,6 @@ const onLoadWindow = () => {
     <img src="/assets/user-profile-icon.svg" alt="log in" class="header-icon" /><span id="title-login">Login</span></button>
 
         <div id="id01" class="modal">
-        <!-- TODO add correct destination/action -->
         <div class="modal-content animate">
           <form>
             <div class="img-container">
@@ -77,7 +76,7 @@ const onLoadWindow = () => {
     </div>
     
     
-    <a href="/cart" id="to-cart"class="header-menu-button"><img src="/assets/shopping-cart-icon.svg" alt="bucket" class="header-icon" />Καλάθι</a>
+    <a href="/cart" id="to-cart"class="header-menu-button"><span class="badge">0</span><img src="/assets/shopping-cart-icon.svg" alt="bucket" class="header-icon" />Καλάθι</a>
     
     
     </nav>`
@@ -121,14 +120,28 @@ const onLoadWindow = () => {
     const footer = Handlebars.compile(footerHtml)();
     document.getElementById("header").innerHTML = header;
     document.getElementById("footer").innerHTML = footer;
-    const username = sessionStorage.getItem("username");
-    const token = sessionStorage.getItem("token");
+    const data = getUserData();
+    const username = data.username;
+    const token =data.token;
+    const totalItems = data.totalItems;
     if(username && token && token != 'undefined'){
-        setUser(username, token);
+        setUser(username, token, totalItems);
     }
 
 }
 
+const getUserData = () => {
+    const username = sessionStorage.getItem("username");
+    const token = sessionStorage.getItem("token");
+    const totalItems = sessionStorage.getItem("totalItems") ?? 0;
+    if(username && token){
+        return {
+            username,
+            token,
+            totalItems
+        }
+    }
+}
 document.addEventListener("DOMContentLoaded", function () {
     onLoadWindow();
 });

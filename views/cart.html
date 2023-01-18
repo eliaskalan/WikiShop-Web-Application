@@ -24,8 +24,11 @@
             const sessionId = searchParams.getAll("sessionId")[0];
             console.log(username,sessionId);
             document.addEventListener("DOMContentLoaded", function(){
-            cardProduct(username,sessionId); 
-            cartTotal();
+            getCardProduct(username,sessionId).then(data => {     
+                cardProduct(data);
+
+                })
+        
             });
                
         </script>

@@ -1,6 +1,6 @@
-const cardProduct = (username,sessionId) => {
+const cardProduct = (data) => {
     
-    const template = Handlebars.compile(
+    const templateCartItems = Handlebars.compile(
         `{{#each list}}
         <div  class="cart-item">
             <div class="about">
@@ -17,21 +17,12 @@ const cardProduct = (username,sessionId) => {
             
         </div>	    
         {{/each}}`);
-getCardProduct(username,sessionId).then(data => {     
-    
-    
-    document.getElementById('cart-items').innerHTML = template({ list: data.cartItems });
-    })
-}
-const cartTotal = () =>
-{
-    const template = Handlebars.compile(
-        `
-        
-            <h2>Σύνολο: {{totalCost}} €</h2>
-        `
-    )
-    getCardProduct(username,sessionId).then(data => {
-            document.getElementById('total').innerHTML = template( data);
-        })
+        const templateTotalCost = Handlebars.compile(
+            `
+            
+                <h2>Σύνολο: {{totalCost}} €</h2>
+            `
+        )
+        document.getElementById('cart-items').innerHTML = templateCartItems({ list: data.cartItems });
+        document.getElementById('total').innerHTML = templateTotalCost( data);
 }

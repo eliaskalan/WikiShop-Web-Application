@@ -2,12 +2,15 @@
 
 const setUser = (username, token, totalItems = 0) => {
     document.getElementById("title-login").innerHTML = username;
+    document.getElementById("cart-items-number").innerHTML =totalItems;
     document.getElementById("login-header").onclick = "";
     document.getElementById('id01').style.display='none';
+    document.getElementById("to-cart").setAttribute("href",`/cart?username=${username}&sessionId=${token}`)
+}
+const setUserSession = (username, token, totalItems = 0) => {
     sessionStorage.setItem("token", token);
     sessionStorage.setItem("username", username);
     sessionStorage.setItem("totalItems", totalItems);
-    document.getElementById("to-cart").setAttribute("href",`/cart?username=${username}&sessionId=${token}`)
 }
 
 async function userLogin(username, password) {
@@ -33,6 +36,8 @@ const login = () => {
         const username = data.username;
         if(token, username){
             setUser(username, token);
+            //when user login has 0 items in the cart
+            setUserSession(username, token);
         }else{
             alert('Η σύνδεση δεν ήταν επιτυχής')
         }
@@ -76,7 +81,7 @@ const onLoadWindow = () => {
     </div>
     
     
-    <a href="/cart" id="to-cart"class="header-menu-button"><span class="badge">0</span><img src="/assets/shopping-cart-icon.svg" alt="bucket" class="header-icon" />Καλάθι</a>
+    <a href="/cart" id="to-cart"class="header-menu-button"><span class="badge" id="cart-items-number">0</span><img src="/assets/shopping-cart-icon.svg" alt="bucket" class="header-icon" />Καλάθι</a>
     
     
     </nav>`

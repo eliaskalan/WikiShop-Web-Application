@@ -144,6 +144,7 @@ app.post('/cart/buy', (req, res) => {
     const user = datalogin[username]
     let cardData = fs.readFileSync('./databases/card.json');
     let card = JSON.parse(cardData);
+    let size = 0;
     if (user.number == sessionId) {
         //user is valid
         if (card[username]) {
@@ -159,21 +160,26 @@ app.post('/cart/buy', (req, res) => {
             }
             if (!flag) {
                 items.push({ title: productName, cost: parseInt(cost), quantity: 1 });
+
             }
             card[username].cartItems = items;
             card[username].totalCost = card[username].totalCost +  parseInt(cost);
+            card[username].size =  card[username].size + 1;
+            size = card[username].size;
             
         }else{
             card[username]= {}
             card[username].cartItems = [{ title: productName, cost: parseInt(cost), quantity: 1 }];
             card[username].totalCost =  parseInt(cost);
+            card[username].size = 1;
+            size = card[username].size;
         }
         
         fs.writeFileSync('./databases/card.json', JSON.stringify(card), (er) =>{
             res.json({status: 'FAILED'})
             console.log(er);
         });
-        res.json({status: 'DONE'})
+        res.json({status: 'DONE', size})
        
     }
      res.json({status: 'FAILED'})

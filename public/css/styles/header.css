@@ -307,12 +307,3 @@ span.psw {
 	color: #1687d9;
 	cursor: pointer;
 }
-
-.remove {
-	padding-top: 5px;
-	font-size: 14px;
-
-	font-weight: 600;
-	color: #E44C4C;
-	cursor: pointer;
-}

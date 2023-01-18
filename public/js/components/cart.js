@@ -12,7 +12,6 @@ const cardProduct = (data) => {
             </div>
             <div class="prices">
                 <div class="amount">{{cost}} €</div>
-                <div class="remove"><u>Remove</u></div>
             </div>
             
         </div>	    

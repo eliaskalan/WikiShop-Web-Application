@@ -237,21 +237,19 @@ span.psw {
 
 .about {
 	height: 100%;
+	width: 35%;
 }
 
 .title {
 	padding-top: 5px;
-	line-height: 10px;
 	font-size: 32px;
-
 	font-weight: 800;
 	color: #202020;
+	width: 100%;
 }
 
 .subtitle {
-	line-height: 10px;
 	font-size: 18px;
-
 	font-weight: 600;
 	color: #909090;
 }

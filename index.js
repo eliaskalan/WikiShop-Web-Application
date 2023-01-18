@@ -105,11 +105,20 @@ app.get('/cart',function(req, res){
     console.log(req.query)
     const username=req.query.username;
     const sessionId = req.query.sessionId;
+    let datalogin = JSON.parse(fs.readFileSync('./databases/users.json'));
+    const user=datalogin[username]
     // TODO validation of user
     //TODO if user exist return cart 
-    res.sendFile('cart.html', options, function(err){
-        console.log(err)
-    })
+    if(typeof(user)!="undefined" && user.number==sessionId){
+        res.sendFile('cart.html', options, function(err){
+            console.log(err)
+        })
+    }else{
+        res.sendFile('404.html', options, function(err){
+            console.log(err)
+        })
+    }
+    
     
 })
 app.get('/card/:username/:sessionId', (req, res) => {

@@ -36,6 +36,7 @@ async function buyProductConnect(productName, productPrice, username, token) {
 		var data = await response.json();
 		if(data.status === 'DONE'){
 			alert('Προστέθηκε στο καλάθι με επιτυχία');
+			window.location.replace('/cart?'+`username=${username}&sessionId=${token}`);
 		}else{
 			alert('Υπήρξε κάποιο πρόβλημα');
 		}

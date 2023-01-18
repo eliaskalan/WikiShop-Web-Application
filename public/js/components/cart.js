@@ -3,9 +3,9 @@ const cardProduct = (data) => {
     const templateCartItems = Handlebars.compile(
         `{{#each list}}
         <div  class="cart-item">
-            <div class="about">
-                <h1 class="title">{{title}}</h1>
-            </div>
+            <h3 class="cart-item-title">
+               {{title}}
+            </h3>
             <div class="counter">
                 <div class="count">Quantity</div>
                 <div class="btn">{{quantity}}</div>
@@ -19,9 +19,9 @@ const cardProduct = (data) => {
         const templateTotalCost = Handlebars.compile(
             `
             
-                <h2>Σύνολο: {{totalCost}} €</h2>
+                <span class="total-cost">{{totalCost}}<span> €</h2>
             `
         )
         document.getElementById('cart-items').innerHTML = templateCartItems({ list: data.cartItems });
-        document.getElementById('total').innerHTML = templateTotalCost( data);
+        document.getElementById('total').innerHTML =  document.getElementById('total').innerHTML+ templateTotalCost( data);
 }

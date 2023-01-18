@@ -1,3 +1,5 @@
+
+
 const api_url = "https://wiki-shop.onrender.com/categories";    
 async function getApi(url){
 	try{
@@ -21,6 +23,6 @@ async function getSubCategoriesProducts(id) {
     return await getApi(`${api_url}/${id}/products`).then(data => data)
 } 
 
-async function getCardProduct(username) {
-    return await getApi(`http://localhost:8080/card/${username}`).then(data => data)
+async function getCardProduct(username,sessionId) {
+    return await getApi(`http://localhost:8080/card/${username}/${sessionId}`).then(data => data)
 } 

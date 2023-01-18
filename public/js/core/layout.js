@@ -1,30 +1,4 @@
-const cardProduct = () => {
-    document.getElementById('id02').style.display='block'
-    const template = Handlebars.compile(`{{#each list}}
-    <div  class="cart-item">
-<div class="about">
-    <h1 class="title">{{title}}</h1>
-</div>
 
-<div class="counter">
-<div class="count">Quantity</div>
-    <div class="btn">{{quantity}}</div>
-   
-</div>
-<div class="prices">
-    <div class="amount">{{cost}} €</div>
-    <div class="remove"><u>Remove</u></div>
-</div>
-</div>
-</div>
-                {{/each}}`);
-getCardProduct('giannistolou').then(data => {     
-    console.log(data.cartItems);
-    console.log(template({ list: data.cartItems }));
-    document.getElementById('cart-items').innerHTML = template({ list: data.cartItems });
-    })
-
-}
 
 const setUser = (username, token) => {
    
@@ -33,6 +7,7 @@ const setUser = (username, token) => {
     document.getElementById('id01').style.display='none';
     sessionStorage.setItem("token", token);
     sessionStorage.setItem("username", username);
+    document.getElementById("to-cart").setAttribute("href",`/cart?username=${username}&sessionId=${token}`)
 }
 
 async function userLogin(username, password) {
@@ -102,23 +77,8 @@ const onLoadWindow = () => {
     </div>
     
     
-    <button onclick="cardProduct('cart-items')" class="header-menu-button"><img src="/assets/shopping-cart-icon.svg" alt="bucket" class="header-icon" />Καλάθι</button>
-    <div id="id02" class="modal">
-    <!-- TODO add correct destination/action -->
-      <div class="modal-content animate">
-        <div class="img-container">
-          <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-          
-        </div>
+    <a href="/cart" id="to-cart"class="header-menu-button"><img src="/assets/shopping-cart-icon.svg" alt="bucket" class="header-icon" />Καλάθι</a>
     
-        <div class="cart">
-            <h3 class="cart-text">Shopping Cart</h3>
-            <h5 class="Action">Remove all</h5>          
-      </div>
-      <div id="cart-items" class="cart-items">
-        
-    </div>
-    </div>
     
     </nav>`
 

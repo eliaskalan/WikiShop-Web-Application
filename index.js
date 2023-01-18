@@ -96,13 +96,42 @@ app.get('/product', function(req, res){
         })
     }
 })
+app.get('/cart',function(req, res){
 
+    var options = {
+        root
 
-app.get('/card/:username', (req, res) => {
+    }
+    console.log(req.query)
+    const username=req.query.username;
+    const sessionId = req.query.sessionId;
+    let datalogin = JSON.parse(fs.readFileSync('./databases/users.json'));
+    const user=datalogin[username]
+    // TODO validation of user
+    //TODO if user exist return cart 
+    if(typeof(user)!="undefined" && user.number==sessionId){
+        res.sendFile('cart.html', options, function(err){
+            console.log(err)
+        })
+    }else{
+        res.sendFile('404.html', options, function(err){
+            console.log(err)
+        })
+    }
+    
+    
+})
+app.get('/card/:username/:sessionId', (req, res) => {
     const username = req.params.username
+    const sessionId = req.params.sessionId
+    let datalogin = JSON.parse(fs.readFileSync('./databases/users.json'));
+    const user=datalogin[username]
     let rawdata = fs.readFileSync('./databases/card.json');
     let card = JSON.parse(rawdata);
-    res.json(card[username]);
+    if(user.number==sessionId){
+        res.json(card[username]);
+    }
+    
 })
 
 
@@ -121,7 +150,10 @@ app.post("/auth", function(req,res){
     let password = req.body.password;
     let rawdata = fs.readFileSync('./databases/users.json');
     let users = JSON.parse(rawdata);
-    
+    var obj = {
+        table: []
+     };
+     
     if(username && password)
     {   
         
@@ -134,11 +166,15 @@ app.post("/auth", function(req,res){
             req.session.loggedin = true;
             req.session.username = username;
             req.session.uuid=uuidv4();
+            //TODO write to json file the seassion token and username
+            users[username].number=req.session.uuid;
+            fs.writeFileSync('./databases/users.json',JSON.stringify(users));
             return res.json({
                 token: req.session.uuid,
                 username: username,
                 message: 'Successfully login'
             });
+            
         } else {
            return res.status(401).send({
                 message: '401 Unauthorized'
@@ -151,4 +187,5 @@ app.post("/auth", function(req,res){
          });
 	}
 })
+
 

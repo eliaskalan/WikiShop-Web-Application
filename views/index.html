@@ -20,7 +20,7 @@
 
     <script>
         getCategories().then(data => {
-            document.getElementById("categories-list").innerHTML = categoryWithImage(data.splice(0, 2)) + document.getElementById("categories-list").innerHTML;
+            document.getElementById("categories-list").innerHTML = categoryWithImage(data.splice(0, 3)) + document.getElementById("categories-list").innerHTML;
         })
     </script>
 </head>
@@ -40,13 +40,7 @@
             <h2 class="category-section-title">Κατηγορίες</h2>
 
             <div id="categories-list" class="products-categories-grid">
-                <a href="/categories" class="category gray-background">
-                    <h3>Δες περισσότερες Κατηγορίες</h3><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                        fill="currentColor" class="bi bi-three-dots icon" viewBox="0 0 16 16">
-                        <path
-                            d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
-                    </svg>
-                </a>
+                
             </div>
         </section>
         

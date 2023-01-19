@@ -53,7 +53,7 @@ const onLoadWindow = () => {
         <a href="/" class="logo-link"><img src="/assets/logo-white.svg" alt="logo" class="logo" />My
             E-commerce</a>
         <a href="/about-us">About us</a>
-        <a href="/categories">Κατηγορίες</a>
+        <a href="/">Κατηγορίες</a>
         <a href="/contactus">Επικοινωνήστε μαζί μας!</a>
     </div>
     <div class="menu">

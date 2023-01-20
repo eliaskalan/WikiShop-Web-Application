@@ -1,17 +1,7 @@
-// function categoryWithOutImage(data){
-//     var template = Handlebars.compile(`
-//     {{#each list}}
-//         <li>
-//             <a class="category" href="/categories?categoryId={{id}}">{{title}}</a> 
-//         </li>
-//     {{/each}}`);
 
-            
-//     return template({ list: data });
-// }
 
 function categoryWithImage(data){
-    // TODO remove css from html code
+
     var template = Handlebars.compile(`{{#each list}}
     <a href="/categories?categoryId={{id}}" class="category">
                     <h3>{{title}}</h3>

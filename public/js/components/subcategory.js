@@ -13,9 +13,7 @@ function productWithImage(data,category_id){
             <li>
                 <p>{{cost}}€</p>
             </li>
-            <li>
-                <button type="submit" class="primary-button product-primary-button">Προσθήκη στο καλάθι</button>
-            </li>
+            <button class="primary-button product-primary-button" onclick="buyProduct("{{title}}", "{{cost}}")">Προσθήκη στο καλάθι</button>
         </ul>
     </a>{{/each}}`);
     return template({ list: data });
@@ -31,7 +29,6 @@ function getFilterSubCategoriesProducts(id,data)
     return arrayProduct
 }
 function getProducts(category_id,subcategory_id,data){
-    //TODO Rename
     document.getElementById("subcategories-list-products").innerHTML = productWithImage(getFilterSubCategoriesProducts(subcategory_id,data),category_id)
 }
 

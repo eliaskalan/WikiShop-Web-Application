@@ -1,13 +1,16 @@
 
 
-const setUser = (username, token) => {
-   
+const setUser = (username, token, totalItems = 0) => {
     document.getElementById("title-login").innerHTML = username;
+    document.getElementById("cart-items-number").innerHTML =totalItems;
     document.getElementById("login-header").onclick = "";
     document.getElementById('id01').style.display='none';
+    document.getElementById("to-cart").setAttribute("href",`/cart?username=${username}&sessionId=${token}`)
+}
+const setUserSession = (username, token, totalItems = 0) => {
     sessionStorage.setItem("token", token);
     sessionStorage.setItem("username", username);
-    document.getElementById("to-cart").setAttribute("href",`/cart?username=${username}&sessionId=${token}`)
+    sessionStorage.setItem("totalItems", totalItems);
 }
 
 async function userLogin(username, password) {
@@ -33,6 +36,8 @@ const login = () => {
         const username = data.username;
         if(token, username){
             setUser(username, token);
+            //when user login has 0 items in the cart
+            setUserSession(username, token);
         }else{
             alert('Η σύνδεση δεν ήταν επιτυχής')
         }
@@ -48,7 +53,7 @@ const onLoadWindow = () => {
         <a href="/" class="logo-link"><img src="/assets/logo-white.svg" alt="logo" class="logo" />My
             E-commerce</a>
         <a href="/about-us">About us</a>
-        <a href="/categories">Κατηγορίες</a>
+        <a href="/">Κατηγορίες</a>
         <a href="/contactus">Επικοινωνήστε μαζί μας!</a>
     </div>
     <div class="menu">
@@ -56,7 +61,6 @@ const onLoadWindow = () => {
     <img src="/assets/user-profile-icon.svg" alt="log in" class="header-icon" /><span id="title-login">Login</span></button>
 
         <div id="id01" class="modal">
-        <!-- TODO add correct destination/action -->
         <div class="modal-content animate">
           <form>
             <div class="img-container">
@@ -77,7 +81,7 @@ const onLoadWindow = () => {
     </div>
     
     
-    <a href="/cart" id="to-cart"class="header-menu-button"><img src="/assets/shopping-cart-icon.svg" alt="bucket" class="header-icon" />Καλάθι</a>
+    <a href="/cart" id="to-cart"class="header-menu-button"><span class="badge" id="cart-items-number">0</span><img src="/assets/shopping-cart-icon.svg" alt="bucket" class="header-icon" />Καλάθι</a>
     
     
     </nav>`
@@ -121,14 +125,28 @@ const onLoadWindow = () => {
     const footer = Handlebars.compile(footerHtml)();
     document.getElementById("header").innerHTML = header;
     document.getElementById("footer").innerHTML = footer;
-    const username = sessionStorage.getItem("username");
-    const token = sessionStorage.getItem("token");
+    const data = getUserData();
+    const username = data.username;
+    const token =data.token;
+    const totalItems = data.totalItems;
     if(username && token && token != 'undefined'){
-        setUser(username, token);
+        setUser(username, token, totalItems);
     }
 
 }
 
+const getUserData = () => {
+    const username = sessionStorage.getItem("username");
+    const token = sessionStorage.getItem("token");
+    const totalItems = sessionStorage.getItem("totalItems") ?? 0;
+    if(username && token){
+        return {
+            username,
+            token,
+            totalItems
+        }
+    }
+}
 document.addEventListener("DOMContentLoaded", function () {
     onLoadWindow();
 });

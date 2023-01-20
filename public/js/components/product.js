@@ -2,19 +2,19 @@ function product(data){
     
     var template = Handlebars.compile(`
     
-				<img src="{{list.image}}" width="300" height="300"
-					alt="{{list.title}}" />
-				<span class="id">Κωδικός: {{list.id}}</span> <br>
+				<img src="{{item.image}}" width="300" height="300"
+					alt="{{item.title}}" />
+				<span class="id">Κωδικός: {{item.id}}</span> <br>
 				
 				</div>
 				<p class="short-description">
-                    {{list.description}}
+                    {{item.description}}
 				</p>
-				<h2>{{list.cost}}€</h2>
-				<button type="submit" class="primary-button product-primary-button">Προσθήκη στο καλάθι</button>
+				<h2>{{item.cost}}€</h2>
+				<a class="primary-button product-primary-button" onclick=\"buyProduct({{item.title}}, {{item.cost}})\" >Προσθήκη στο καλάθι</button>
 		</section>
         `);
-        return template({ list: data });
+        return template({ item: data });
 }
 function products(data){
     
@@ -29,7 +29,7 @@ function products(data){
                     {{description}}
 				</p>
 				<h2>{{cost}}€</h2>
-				<button type="submit" class="primary-button product-primary-button">Προσθήκη στο καλάθι</button>
+				<button class="primary-button product-primary-button" onclick="buyProduct({{list.title}}, {{list.cost}})">Προσθήκη στο καλάθι</button>
 		</section>
         {{/each}}`);
         return template({ list: data });
@@ -38,7 +38,8 @@ function getFilterSubCategoriesProducts(id,data)
 {
     for(let i = 0; i < data.length; i++){
     if(data[i].id == id){
-        return data[i]
+        data[i].title = JSON.stringify(data[i].title).toString();
+        return data[i];
     }
     }
 
@@ -54,6 +55,7 @@ function getProduct(product_id,category_id)
 }
 function getProducts(category_id){
     getSubCategoriesProducts(category_id).then(data => {
-    document.getElementById("subcategories-list-products").innerHTML = products(data)
+    const newData = data.map((item) => JSON.stringify(item.title));
+    document.getElementById("subcategories-list-products").innerHTML = products(newData)
 })
 }

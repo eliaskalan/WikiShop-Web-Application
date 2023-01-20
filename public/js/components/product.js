@@ -11,7 +11,7 @@ function product(data){
                     {{item.description}}
 				</p>
 				<h2>{{item.cost}}€</h2>
-				<a class="primary-button product-primary-button" onclick=\"buyProduct({{item.title}}, {{item.cost}})\" >Προσθήκη στο καλάθι</button>
+                <button class="primary-button product-primary-button" onclick=\"buyProduct({{item.title}}, {{item.cost}})\" >Προσθήκη στο καλάθι</button>
 		</section>
         `);
         return template({ item: data });
@@ -29,7 +29,7 @@ function products(data){
                     {{description}}
 				</p>
 				<h2>{{cost}}€</h2>
-				<button class="primary-button product-primary-button" onclick="buyProduct({{list.title}}, {{list.cost}})">Προσθήκη στο καλάθι</button>
+				<span class="primary-button product-primary-button go-next">Δες περισσότερα</span>
 		</section>
         {{/each}}`);
         return template({ list: data });

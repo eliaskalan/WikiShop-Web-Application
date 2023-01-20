@@ -79,6 +79,16 @@ button {
 	width: 100%;
 }
 
+.go-next {
+	background-color: #0d1bbd;
+	color: white;
+	padding: 14px 20px;
+	margin: 1rem 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
+
 button:hover {
 	opacity: 0.8;
 }

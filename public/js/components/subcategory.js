@@ -13,7 +13,7 @@ function productWithImage(data,category_id){
             <li>
                 <p>{{cost}}€</p>
             </li>
-            <button class="primary-button product-primary-button" onclick="buyProduct("{{title}}", "{{cost}}")">Προσθήκη στο καλάθι</button>
+            <span class="primary-button product-primary-button go-next">Δες περισσότερα</span>
         </ul>
     </a>{{/each}}`);
     return template({ list: data });

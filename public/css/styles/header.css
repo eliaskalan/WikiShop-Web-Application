@@ -57,7 +57,7 @@ header {
 	transition: border 0.2s;
 }
 
-/* TODO mobile css ir wrong */
+
 input[type=text],
 input[type=password] {
 	width: 100%;

@@ -107,8 +107,6 @@ app.get('/cart', function (req, res) {
     const sessionId = req.query.sessionId;
     let datalogin = JSON.parse(fs.readFileSync('./databases/users.json'));
     const user = datalogin[username]
-    // TODO validation of user
-    //TODO if user exist return cart 
     if (typeof (user) != "undefined" && user.number == sessionId) {
         res.sendFile('cart.html', options, function (err) {
             console.log(err)
@@ -214,7 +212,6 @@ app.post("/auth", function (req, res) {
             req.session.loggedin = true;
             req.session.username = username;
             req.session.uuid = uuidv4();
-            //TODO write to json file the seassion token and username
             users[username].number = req.session.uuid;
             fs.writeFileSync('./databases/users.json', JSON.stringify(users));
             return res.json({

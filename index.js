@@ -179,8 +179,10 @@ app.post('/cart/buy', (req, res) => {
         });
         res.json({status: 'DONE', size})
        
+    }else{
+        res.json({status: 'FAILED'})
     }
-     res.json({status: 'FAILED'})
+    
 })
 
 

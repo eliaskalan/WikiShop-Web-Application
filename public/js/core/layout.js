@@ -126,9 +126,9 @@ const onLoadWindow = () => {
     document.getElementById("header").innerHTML = header;
     document.getElementById("footer").innerHTML = footer;
     const data = getUserData();
-    const username = data.username;
-    const token =data.token;
-    const totalItems = data.totalItems;
+    const username = data?.username;
+    const token =data?.token;
+    const totalItems = data?.totalItems;
     if(username && token && token != 'undefined'){
         setUser(username, token, totalItems);
     }

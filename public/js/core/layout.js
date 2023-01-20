@@ -147,6 +147,6 @@ const getUserData = () => {
         }
     }
 }
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoaded", function () {
     onLoadWindow();
 });

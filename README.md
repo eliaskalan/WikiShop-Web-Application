@@ -21,7 +21,7 @@ To run the WikiShop web application, follow these steps:
     
     ```
     bashCopy code
-    git clone https://github.com/your-username/your-repo.git
+    git clone (https://github.com/eliaskalan/webdev-assignment-2.git)
     
     ```
     
@@ -29,7 +29,7 @@ To run the WikiShop web application, follow these steps:
     
     ```
     bashCopy code
-    cd your-repo
+    cd webdev-assignment-2
     npm install
     
     ```

@@ -21,8 +21,7 @@ To run the WikiShop web application, follow these steps:
     
     ```
     bashCopy code
-    git clone (https://github.com/eliaskalan/webdev-assignment-2.git)
-    
+    git clone https://github.com/eliaskalan/webdev-assignment-2.git
     ```
     
 2. Install dependencies:
@@ -31,7 +30,6 @@ To run the WikiShop web application, follow these steps:
     bashCopy code
     cd webdev-assignment-2
     npm install
-    
     ```
     
 3. Start the server:
@@ -39,7 +37,6 @@ To run the WikiShop web application, follow these steps:
     ```
     bashCopy code
     npm start
-    
     ```
     
 4. Open your web browser and visit **`http://localhost:3000`** to access the web application.

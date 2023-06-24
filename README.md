@@ -3,7 +3,7 @@
 This is a web application that allows users to browse and purchase products from the WikiShop online store. The application is built using a client-server architecture, with the client implemented as a series of HTML pages and the server implemented using Node.js and the Express framework.
 
 ## **Live site:**
-You can Visit the live site here: https://e-commerce-g88r.onrender.com/ (needs apx. 1 minute to load)
+You can Visit the live site here: [https://e-commerce-g88r.onrender.com/](https://wikishop-0n4s.onrender.com) (needs apx. 1 minute to load)
 ## **Features**
 
 The web application supports the following features:

@@ -75,7 +75,7 @@ Integration with a real database can be implemented to store user and cart data 
 
 ## **Credits**
 
-This web application is developed by [@giannistolou] (https://github.com/giannistolou), [@eliaskalan] (https://github.com/eliaskalan).
+This web application is developed by [@giannistolou](https://github.com/giannistolou), [@eliaskalan](https://github.com/eliaskalan).
 
 
 
